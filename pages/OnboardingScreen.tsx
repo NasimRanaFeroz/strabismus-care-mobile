@@ -6,16 +6,6 @@ import { OnboardingScreenNavigationProp } from '@/navigation/types'; // Adjust t
 export default function OnboardingScreen() {
   const navigation = useNavigation<OnboardingScreenNavigationProp>();
 
-  useEffect(() => {
-    // Navigate to Login screen after 2 seconds
-    const timer = setTimeout(() => {
-      navigation.navigate('Login');
-    }, 2000);
-
-    // Cleanup the timer when the component unmounts
-    return () => clearTimeout(timer);
-  }, [navigation]);
-
   return (
     <View style={styles.container}>
       {/* Group 50 Image */}

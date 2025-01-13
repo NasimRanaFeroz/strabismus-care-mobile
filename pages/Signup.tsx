@@ -1,18 +1,17 @@
 import React from 'react';
 import { View, Text, TextInput, StyleSheet, Image, TouchableOpacity } from 'react-native';
 
-const Login = ({ navigation }: any) => {
+const Signup = ({ navigation }: any) => {
   return (
     <View style={styles.container}>
-      {/* Status Bar */}
-      <View style={styles.statusBar}>
-        <Text style={styles.time}>4:20</Text>
-        <View style={styles.indicators}>
-          <Image style={styles.icon} source={require('./assets/masters-status-bar-parts-atoms-indicator-signal0.svg')} />
-          <Image style={styles.icon} source={require('./assets/masters-status-bar-parts-atoms-indicator-wifi0.svg')} />
-          <Image style={styles.icon} source={require('./assets/levels0.svg')} />
-        </View>
-      </View>
+
+      <View style={styles.topHeader}>
+              <Image
+                source={require("@/assets/images/logo-hz.png")}
+                style={styles.logo}
+                resizeMode="contain"
+              />
+            </View>
 
       {/* Header */}
       <Text style={styles.header}>Create a new account</Text>
@@ -21,15 +20,15 @@ const Login = ({ navigation }: any) => {
       <View style={styles.inputContainer}>
         <View style={styles.inputField}>
           <Text style={styles.label}>Name</Text>
-          <TextInput style={styles.input} placeholder="Adam Costa" />
+          <TextInput style={styles.input} placeholder="Enter your name" />
         </View>
         <View style={styles.inputField}>
           <Text style={styles.label}>Email</Text>
-          <TextInput style={styles.input} placeholder="adam.costa@email.com" keyboardType="email-address" />
+          <TextInput style={styles.input} placeholder="Enter your email" keyboardType="email-address" />
         </View>
         <View style={styles.inputField}>
           <Text style={styles.label}>Password</Text>
-          <TextInput style={styles.input} placeholder="@xD$E!89ujkA" secureTextEntry={true} />
+          <TextInput style={styles.input} placeholder="Enter a password" secureTextEntry={true} />
         </View>
       </View>
 
@@ -50,18 +49,15 @@ const Login = ({ navigation }: any) => {
         <Text style={styles.orText}>Or Sign up with</Text>
         <View style={styles.socialButtons}>
           <TouchableOpacity style={styles.socialButton}>
-            <Image style={styles.socialIcon} source={require('./assets/image-20.png')} />
+            <Image style={styles.socialIcon} source={require('@/assets/images/google.png')} />
           </TouchableOpacity>
           <TouchableOpacity style={styles.socialButton}>
-            <Image style={styles.socialIcon} source={require('./assets/logo-facebook0.svg')} />
+            <Image style={styles.socialIcon} source={require('@/assets/images/facebook.png')} />
           </TouchableOpacity>
           <TouchableOpacity style={styles.socialButton}>
-            <Image style={styles.socialIcon} source={require('./assets/apple0.svg')} />
+            <Image style={styles.socialIcon} source={require('@/assets/images/apple.png')} />
           </TouchableOpacity>
         </View>
-        <TouchableOpacity>
-          <Text style={styles.guestText}>Continue as guest</Text>
-        </TouchableOpacity>
       </View>
     </View>
   );
@@ -73,23 +69,17 @@ const styles = StyleSheet.create({
     backgroundColor: '#fff',
     padding: 16,
   },
-  statusBar: {
-    flexDirection: 'row',
-    justifyContent: 'space-between',
-    alignItems: 'center',
+  topHeader: {
+    flexDirection: "row", // Align items horizontally
+    alignItems: "center", // Center vertically
+    paddingHorizontal: 4,
+    marginTop: 32,
     marginBottom: 24,
   },
-  time: {
-    fontSize: 16,
-    fontWeight: '600',
-  },
-  indicators: {
-    flexDirection: 'row',
-  },
-  icon: {
-    width: 20,
-    height: 20,
-    marginHorizontal: 4,
+  logo: {
+    width: 230,
+    height: 33,
+    marginLeft: 8,
   },
   header: {
     fontSize: 24,
@@ -151,28 +141,27 @@ const styles = StyleSheet.create({
   },
   socialButtons: {
     flexDirection: 'row',
-    justifyContent: 'space-between',
+    justifyContent: 'center',
     width: '100%',
     marginBottom: 16,
+    marginLeft: 10,
+    marginRight: 10,
   },
   socialButton: {
-    width: 48,
-    height: 48,
+    width: 114,
+    height: 56,
     borderWidth: 1,
     borderColor: '#e9e9e9',
     borderRadius: 8,
     justifyContent: 'center',
     alignItems: 'center',
+    marginLeft: 8,
+    marginRight: 8,
   },
   socialIcon: {
     width: 24,
     height: 24,
   },
-  guestText: {
-    fontSize: 14,
-    color: '#ff7900',
-    fontWeight: '500',
-  },
 });
 
-export default Login;
+export default Signup;
