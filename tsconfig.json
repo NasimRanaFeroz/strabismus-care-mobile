@@ -1,17 +1,20 @@
 {
-  "extends": "expo/tsconfig.base",
+  "extends": "./node_modules/expo/tsconfig.base",
   "compilerOptions": {
     "strict": true,
     "paths": {
-      "@/*": [
-        "./*"
-      ]
-    }
+      "@/*": ["./*"]
+    },
+    "baseUrl": "./", // Required for paths to work
+    "jsx": "react", // Ensure React JSX is used
+    "skipLibCheck": true, // Optional: Skip type checking for node_modules
+    "forceConsistentCasingInFileNames": true // Optional: Ensure file names are case-sensitive
   },
   "include": [
     "**/*.ts",
     "**/*.tsx",
     ".expo/types/**/*.ts",
     "expo-env.d.ts"
-  ]
+  ],
+  "exclude": ["node_modules", "metro.config.js"]
 }
