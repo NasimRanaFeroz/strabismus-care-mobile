@@ -6,16 +6,18 @@ import Login from '@/pages/Login';
 import PassRecover from '@/pages/PassRecover';
 import OTP from '@/pages/OTP';
 import ChangePassword from '@/pages/ChangePassword';
+import Dashboard from '@/pages/Dashboard';
 
 export default function App() {
   return (
     <SafeAreaView style={{ flex: 1 }}>
       {/* <OnboardingScreen /> */}
       {/* <Signup /> */}
-      <Login />
+      {/* <Login /> */}
       {/* <PassRecover /> */}
       {/* <OTP/> */}
-      {/* <ChangePassword/> */}
+      {/* <ChangePassword /> */}
+      <Dashboard/>
     </SafeAreaView>
   );
 }

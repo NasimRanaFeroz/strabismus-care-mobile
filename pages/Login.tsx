@@ -10,8 +10,8 @@ import {
 } from "react-native";
 
 const Login = ({ navigation }: any) => {
-  const [email, setEmail] = useState("adam.costa@email.com");
-  const [password, setPassword] = useState("@xD$E!89ujkA");
+  const [email, setEmail] = useState("");
+  const [password, setPassword] = useState("");
   const [isPasswordVisible, setIsPasswordVisible] = useState(false);
 
   return (
