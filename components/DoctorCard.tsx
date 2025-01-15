@@ -1,7 +1,6 @@
 import React from "react";
 import { View, Text, Image, TouchableOpacity, StyleSheet } from "react-native";
 
-// Define the props type for the DoctorCard component
 type DoctorCardProps = {
   name: string;
   specialty: string;
@@ -20,32 +19,36 @@ const DoctorCard: React.FC<DoctorCardProps> = ({
   onPress,
 }) => {
   return (
-    <View style={styles.card}>
+    <View style={styles.cardTop}>
       {/* Header Section */}
-      <View style={styles.header}>
+      <View style={styles.headerTop}>
         <Image
           source={require("@/assets/images/doc.png")}
-          style={styles.profileImage}
+          style={styles.profileImageTop}
         />
-        <View style={styles.headerText}>
-          <Text style={styles.name}>{name}</Text>
-          <Text style={styles.specialty}>{specialty}</Text>
+        <View style={styles.headerTextTop}>
+          <Text style={styles.nameTop}>{name}</Text>
+          <Text style={styles.specialtyTop}>{specialty}</Text>
         </View>
-        <View style={styles.ratingContainer}>
-          <Text style={styles.heartIcon}>❤️</Text>
-          <Text style={styles.rating}>{rating}</Text>
+        <View style={styles.ratingContainerTop}>
+          <Text style={styles.heartIconTop}>❤️</Text>
+          <Text style={styles.ratingTop}>{rating}</Text>
         </View>
       </View>
 
       {/* Appointment Details */}
-      <View style={styles.appointmentDetails}>
-        <Text style={styles.date}>{date}</Text>
-        <Text style={styles.time}>{time}</Text>
-      </View>
+                    <View style={styles.appointmentDetailsTop}>
+                      <View style={styles.rowTop}>
+                        <Text style={styles.iconTop}>🕒</Text>
+                        <Text style={styles.dateTop}>Monday</Text>
+                        <Text style={styles.dateTop}>Oct 27, 2022</Text>
+                        <Text style={styles.timeTop}>9:00 - 9:30 am</Text>
+                      </View>
+                    </View>
 
       {/* Book Appointment Button */}
-      <TouchableOpacity style={styles.button} onPress={onPress}>
-        <Text style={styles.buttonText}>Book Appointment</Text>
+      <TouchableOpacity style={styles.buttonTop} onPress={onPress}>
+        <Text style={styles.buttonTextTop}>Book Appointment</Text>
       </TouchableOpacity>
     </View>
   );
@@ -54,7 +57,7 @@ const DoctorCard: React.FC<DoctorCardProps> = ({
 export default DoctorCard;
 
 const styles = StyleSheet.create({
-  card: {
+  cardTop: {
     backgroundColor: "#FFFFFF",
     borderRadius: 12,
     padding: 16,
@@ -65,63 +68,77 @@ const styles = StyleSheet.create({
     shadowOffset: { width: 0, height: 2 },
     elevation: 3,
   },
-  header: {
+  headerTop: {
     flexDirection: "row",
     alignItems: "center",
     marginBottom: 16,
   },
-  profileImage: {
+  profileImageTop: {
     width: 60,
     height: 60,
     borderRadius: 30,
     marginRight: 12,
   },
-  headerText: {
+  headerTextTop: {
     flex: 1,
   },
-  name: {
+  nameTop: {
     fontSize: 16,
     fontWeight: "bold",
     color: "#333",
   },
-  specialty: {
+  specialtyTop: {
     fontSize: 14,
     color: "#666",
     marginTop: 2,
   },
-  ratingContainer: {
+  ratingContainerTop: {
     flexDirection: "row",
     alignItems: "center",
   },
-  heartIcon: {
+  heartIconTop: {
     fontSize: 16,
     color: "red",
     marginRight: 4,
   },
-  rating: {
-    fontSize: 14,
-    color: "#333",
-  },
-  appointmentDetails: {
-    marginBottom: 16,
-  },
-  date: {
-    fontSize: 14,
-    color: "#666",
-  },
-  time: {
-    fontSize: 14,
-    color: "#333",
-  },
-  button: {
-    backgroundColor: "#6200EE",
-    borderRadius: 8,
-    padding: 12,
-    alignItems: "center",
-  },
-  buttonText: {
-    color: "#FFFFFF",
+  ratingTop: {
     fontSize: 14,
     fontWeight: "bold",
+    color: "#333",
+  },
+  appointmentDetailsTop: {
+    backgroundColor: "#E9F4FF",
+    borderRadius: 8,
+    padding: 12,
+    marginBottom: 16,
+  },
+  rowTop: {
+    flexDirection: "row",
+    alignItems: "center",
+  },
+  iconTop: {
+    fontSize: 16,
+    marginRight: 8,
+  },
+  dateTop: {
+    fontSize: 14,
+    color: "#333",
+    marginRight: 12,
+  },
+  timeTop: {
+    fontSize: 14,
+    color: "#333",
+    fontWeight: "bold",
+  },
+  buttonTop: {
+    backgroundColor: "#FF6C00",
+    borderRadius: 8,
+    paddingVertical: 12,
+    alignItems: "center",
+  },
+  buttonTextTop: {
+    fontSize: 16,
+    fontWeight: "bold",
+    color: "#FFFFFF",
   },
 });
