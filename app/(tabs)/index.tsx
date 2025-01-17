@@ -7,7 +7,7 @@ import PassRecover from '@/pages/PassRecover';
 import OTP from '@/pages/OTP';
 import ChangePassword from '@/pages/ChangePassword';
 import Dashboard from '@/pages/Dashboard';
-import DashboardNavbar from '@/components/DashboardNavbar';
+import TestNormal from '@/pages/TestNormal';
 
 export default function App() {
   return (
@@ -18,8 +18,8 @@ export default function App() {
       {/* <PassRecover /> */}
       {/* <OTP/> */}
       {/* <ChangePassword /> */}
-      <Dashboard />
-      {/* <DashboardNavbar /> */}
+      {/* <Dashboard /> */}
+      <TestNormal/>
     </SafeAreaView>
   );
 }
