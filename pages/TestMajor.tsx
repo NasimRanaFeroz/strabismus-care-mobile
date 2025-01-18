@@ -4,11 +4,10 @@ import {
   Text,
   StyleSheet,
   Image,
-  Button,
   TouchableOpacity,
 } from "react-native";
 
-export default function TestResultScreen( {navigation}: any) {
+export default function TestResultScreen({ navigation }: any) {
   return (
     <View style={styles.container}>
       {/* Icon */}
@@ -19,26 +18,43 @@ export default function TestResultScreen( {navigation}: any) {
         />
       </View>
 
-      {/* Title */}
-      <Text style={styles.title}>Normal</Text>
+      <Text style={styles.title}>Major</Text>
 
-      {/* Subtitle */}
       <Text style={styles.subtitle}>Test Successfully Completed</Text>
 
       <Text style={styles.description}>
-        Eyes are the windows to the soul, and proper eye care is the key to
-        preserving the clarity of that vision. Investing in your eye health
-        today ensures a clearer tomorrow.
+        Your eyes are priceless—taking care of them today ensures a lifetime of
+        clear sight and better quality of life tomorrow.
       </Text>
 
-      {/* Button */}
-      <TouchableOpacity style={styles.button}
-      onPress={() => navigation.navigate("TestMinor")}>
-        <Text style={styles.buttonText}>Articles</Text>
+      <TouchableOpacity
+        style={styles.mainButton}
+        onPress={() => navigation.navigate("TestStart")}
+      >
+        <Text style={styles.mainButtonText}>Consult a Doctor</Text>
       </TouchableOpacity>
 
-      {/* Footer */}
-      <Text style={styles.footer}>Share the articles and spread awareness</Text>
+      {/* Footer Buttons */}
+      <View style={styles.footerButtonsContainer}>
+        <TouchableOpacity
+          style={styles.footerButton}
+          onPress={() => navigation.navigate("TestAgain")}
+        >
+          <Text style={styles.footerButtonText}>Test Again</Text>
+        </TouchableOpacity>
+        <TouchableOpacity
+          style={styles.footerButton}
+          onPress={() => navigation.navigate("SaveTest")}
+        >
+          <Text style={styles.footerButtonText}>Save Test</Text>
+        </TouchableOpacity>
+        <TouchableOpacity
+          style={styles.footerButton}
+          onPress={() => navigation.navigate("Share")}
+        >
+          <Text style={styles.footerButtonText}>Share</Text>
+        </TouchableOpacity>
+      </View>
     </View>
   );
 }
@@ -85,7 +101,7 @@ const styles = StyleSheet.create({
     textAlign: "center",
     marginBottom: 30,
   },
-  button: {
+  mainButton: {
     backgroundColor: "#FF6F00",
     paddingVertical: 12,
     paddingHorizontal: 30,
@@ -93,15 +109,22 @@ const styles = StyleSheet.create({
     marginBottom: 20,
     width: "100%",
   },
-  buttonText: {
+  mainButtonText: {
     color: "#fff",
     fontSize: 16,
     fontWeight: "bold",
     textAlign: "center",
   },
-  footer: {
+  footerButtonsContainer: {
+    flexDirection: "row",
+    width: "100%",
+  },
+  footerButton: {
+    flex: 1,
+    alignItems: "center",
+  },
+  footerButtonText: {
     fontSize: 10,
-    color: "#888",
-    textAlign: "center",
+    color: "#555",
   },
 });
