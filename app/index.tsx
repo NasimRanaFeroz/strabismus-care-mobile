@@ -1,32 +1,47 @@
 import React from "react";
-import { View, Text, StyleSheet } from "react-native";
-import { NativeRouter, Route, Routes, Link } from "react-router-native";
-
-// Import your screens
-import Dashboard from "./(tabs)/Dashboard";
+import { NativeRouter, Routes, Route, useNavigate } from "react-router-native"; // Use `useNavigate` from React Router Native
+import { View, Image, Text, StyleSheet, TouchableOpacity } from "react-native";
+import Dashboard from "@/app/(tabs)/Dashboard";
+import Login from "./(auth)/Login";
 
 export default function App() {
   return (
     <NativeRouter>
-      <View style={styles.container}>
-        <Routes>
-          {/* Define the routes */}
-          <Route path="/" element={<Home />} />
-          <Route path="/(tabs)/Dashboard" element={<Dashboard />} />
-        </Routes>
-      </View>
+      <Routes>
+        <Route path="/" element={<HomeScreen />} />
+        <Route path="/(tabs)/Dashboard" element={<Dashboard />} />
+        <Route path="/(auth)/Login" element={<Login/>} />
+      </Routes>
     </NativeRouter>
   );
 }
 
-// Home Component for the "/" route
-function Home() {
+function HomeScreen() {
+  const navigate = useNavigate();
+
   return (
     <View style={styles.container}>
-      <Text>App</Text>
-      <Link to="/(tabs)/Dashboard" style={styles.link}>
-        <Text style={styles.linkText}>Go to Dashboard</Text>
-      </Link>
+      <Image
+        source={require("@/assets/images/logo.png")}
+        style={styles.groupImage}
+      />
+
+      <Image
+        source={require("@/assets/images/ball-up.png")}
+        style={styles.ellipse17}
+      />
+
+      <Image
+        source={require("@/assets/images/ball-down.png")}
+        style={styles.ellipse20}
+      />
+
+      <TouchableOpacity
+        style={styles.mainButton}
+        onPress={() => navigate("/(auth)/Login")}
+      >
+        <Text style={styles.mainButtonText}>Get Started</Text>
+      </TouchableOpacity>
     </View>
   );
 }
@@ -34,18 +49,46 @@ function Home() {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    justifyContent: "center",
-    alignItems: "center",
     backgroundColor: "#ffffff",
+    position: "relative",
   },
-  link: {
-    marginTop: 20,
-    padding: 10,
+  groupImage: {
+    opacity: 1,
+    height: 150,
+    width: 150,
+    position: "absolute",
+    left: 120,
+    top: 325,
+  },
+  ellipse17: {
+    width: 234,
+    height: 234,
+    position: "absolute",
+    left: -53,
+    top: 648,
+  },
+  ellipse20: {
+    width: 234,
+    height: 234,
+    position: "absolute",
+    left: 210,
+    top: -38,
+  },
+  mainButton: {
     backgroundColor: "#FF6F00",
-    borderRadius: 5,
+    paddingVertical: 12,
+    paddingHorizontal: 30,
+    borderRadius: 8,
+    marginBottom: 20,
+    width: "90%",
+    position: "absolute",
+    bottom: 20,
+    alignSelf: "center",
   },
-  linkText: {
-    color: "#ffffff",
+  mainButtonText: {
+    color: "#fff",
+    fontSize: 16,
     fontWeight: "bold",
+    textAlign: "center",
   },
 });

@@ -1,5 +1,4 @@
 import React from "react";
-import Logo from "@/components/Logo-name";
 import {
   View,
   Text,
@@ -9,7 +8,7 @@ import {
   StyleSheet,
 } from "react-native";
 
-const OtpScreen: React.FC = () => {
+const OtpScreen: React.FC = ({ navigation }: any) => {
   return (
     <View style={styles.container}>
       {/* Header Section */}
@@ -68,7 +67,10 @@ const OtpScreen: React.FC = () => {
       </View>
 
       {/* Continue Button */}
-      <TouchableOpacity style={styles.continueButton}>
+      <TouchableOpacity
+        style={styles.continueButton}
+        onPress={() => navigation.navigate("ChangedPassword")}
+      >
         <Text style={styles.continueButtonText}>Continue</Text>
       </TouchableOpacity>
     </View>

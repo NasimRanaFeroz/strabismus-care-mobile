@@ -8,7 +8,7 @@ import {
   StyleSheet,
 } from "react-native";
 
-const ChangePassword: React.FC = () => {
+const ChangePassword: React.FC = ({navigation}: any) => {
   return (
     <View style={styles.container}>
       <View style={styles.topHeader}>
@@ -66,7 +66,7 @@ const ChangePassword: React.FC = () => {
         </View>
 
         {/* Save Password Button */}
-        <TouchableOpacity style={styles.saveButton}>
+        <TouchableOpacity style={styles.saveButton} onPress={() => navigation.navigate("Login")}>
           <Text style={styles.saveButtonText}>Save Password</Text>
         </TouchableOpacity>
       </View>

@@ -1,21 +1,28 @@
 import React from "react";
-import { View, Text, TextInput, Image, TouchableOpacity, StyleSheet } from "react-native";
+import {
+  View,
+  Text,
+  TextInput,
+  Image,
+  TouchableOpacity,
+  StyleSheet,
+} from "react-native";
 
-const PassRecover: React.FC = () => {
+const PassRecover: React.FC = ({ navigation }: any) => {
   return (
     <View style={styles.container}>
       {/* Back Button */}
       <View style={styles.topHeader}>
-              <Image
-                style={styles.backArrow}
-                source={require("@/assets/images/back-button.png")}
-              />
-              <Image
-                source={require("@/assets/images/logo-hz.png")}
-                style={styles.logo}
-                resizeMode="contain"
-              />
-            </View>
+        <Image
+          style={styles.backArrow}
+          source={require("@/assets/images/back-button.png")}
+        />
+        <Image
+          source={require("@/assets/images/logo-hz.png")}
+          style={styles.logo}
+          resizeMode="contain"
+        />
+      </View>
 
       <View style={styles.mainContent}>
         <Text style={styles.title}>Password Recovery</Text>
@@ -28,13 +35,14 @@ const PassRecover: React.FC = () => {
           />
           <Text style={styles.inputLabel}>Email</Text>
         </View>
-{/* Send Code Button */}
-<TouchableOpacity style={styles.sendCodeButton}>
+        {/* Send Code Button */}
+        <TouchableOpacity
+          style={styles.sendCodeButton}
+          onPress={() => navigation.navigate("OTP")}
+        >
           <Text style={styles.buttonText}>Send code</Text>
         </TouchableOpacity>
-        
       </View>
-      
     </View>
   );
 };
@@ -133,7 +141,7 @@ const styles = StyleSheet.create({
 
   /* Main Content */
   mainContent: {
-    flex: 1, 
+    flex: 1,
     marginTop: 32,
     paddingHorizontal: 16,
     alignItems: "center",
@@ -183,13 +191,12 @@ const styles = StyleSheet.create({
     position: "absolute", // Position the button absolutely
     bottom: 20, // Distance from the bottom of the screen
     left: 16, // Distance from the left of the screen
-    right: 16, 
+    right: 16,
   },
   buttonText: {
     color: "#ffffff",
     fontSize: 14,
     fontWeight: "500",
-    
   },
 });
 

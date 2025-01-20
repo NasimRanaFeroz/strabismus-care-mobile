@@ -1,18 +1,34 @@
-import React, { useState } from "react";
-
+import React from "react";
+import { NativeRouter, Routes, Route, useNavigate } from "react-router-native"; // Use `useNavigate` from React Router Native
 import {
   View,
-  Text,
-  TextInput,
-  StyleSheet,
   Image,
+  Text,
+  StyleSheet,
   TouchableOpacity,
+  TextInput,
 } from "react-native";
+import Dashboard from "@/app/(tabs)/Dashboard";
+import Signup from "@/app/(auth)/Signup";
+import PassRecover from "@/app/(auth)/PassRecover";
+import HomeScreen from "@/app/index";
+import { useState } from "react";
 
-const Login = ({ navigation }: any) => {
+const Login = () => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [isPasswordVisible, setIsPasswordVisible] = useState(false);
+
+  const navigate = useNavigate();
+
+  <NativeRouter>
+    <Routes>
+      <Route path="/" element={<HomeScreen />} />
+      <Route path="/(tabs)/Dashboard" element={<Dashboard />} />
+      <Route path="/(auth)/Signup" element={<Signup />} />
+      <Route path="/(auth)/PassRecover" element={<PassRecover />} />
+    </Routes>
+  </NativeRouter>;
 
   return (
     <View style={styles.container}>
@@ -64,17 +80,20 @@ const Login = ({ navigation }: any) => {
         </View>
 
         <View style={styles.options}>
-          <TouchableOpacity>
+          <TouchableOpacity onPress={() => navigate("/(auth)/PassRecover")}>
             <Text style={styles.forgotPassword}>Forgot Password?</Text>
           </TouchableOpacity>
         </View>
 
-        <TouchableOpacity style={styles.signInButton}>
+        <TouchableOpacity
+          style={styles.signInButton}
+          onPress={() => navigate("/(tabs)/Dashboard")}
+        >
           <Text style={styles.signInButtonText}>Sign In</Text>
         </TouchableOpacity>
       </View>
 
-      <TouchableOpacity onPress={() => navigation.navigate("Signup")}>
+      <TouchableOpacity onPress={() => navigate("Signup")}>
         <Text style={styles.createAccountText}>
           Don&apos;t have an account?{" "}
           <Text style={styles.createAccountLink}>Create Account</Text>
@@ -82,19 +101,28 @@ const Login = ({ navigation }: any) => {
       </TouchableOpacity>
 
       <View style={styles.socialContainer}>
-              <Text style={styles.orText}>Or Sign in with</Text>
-              <View style={styles.socialButtons}>
-                <TouchableOpacity style={styles.socialButton}>
-                  <Image style={styles.socialIcon} source={require('@/assets/images/google.png')} />
-                </TouchableOpacity>
-                <TouchableOpacity style={styles.socialButton}>
-                  <Image style={styles.socialIcon} source={require('@/assets/images/facebook.png')} />
-                </TouchableOpacity>
-                <TouchableOpacity style={styles.socialButton}>
-                  <Image style={styles.socialIcon} source={require('@/assets/images/apple.png')} />
-                </TouchableOpacity>
-              </View>
-            </View>
+        <Text style={styles.orText}>Or Sign in with</Text>
+        <View style={styles.socialButtons}>
+          <TouchableOpacity style={styles.socialButton}>
+            <Image
+              style={styles.socialIcon}
+              source={require("@/assets/images/google.png")}
+            />
+          </TouchableOpacity>
+          <TouchableOpacity style={styles.socialButton}>
+            <Image
+              style={styles.socialIcon}
+              source={require("@/assets/images/facebook.png")}
+            />
+          </TouchableOpacity>
+          <TouchableOpacity style={styles.socialButton}>
+            <Image
+              style={styles.socialIcon}
+              source={require("@/assets/images/apple.png")}
+            />
+          </TouchableOpacity>
+        </View>
+      </View>
     </View>
   );
 };
@@ -157,8 +185,8 @@ const styles = StyleSheet.create({
     flex: 1,
     height: 48,
     fontSize: 16,
-},
-  
+  },
+
   passwordToggle: {
     width: 24,
     height: 24,
@@ -176,10 +204,10 @@ const styles = StyleSheet.create({
   },
   forgotPassword: {
     fontSize: 14,
-    color: '#ff6d00',
+    color: "#ff6d00",
   },
   signInButton: {
-    backgroundColor: '#ff6d00',
+    backgroundColor: "#ff6d00",
     height: 48,
     borderRadius: 8,
     justifyContent: "center",
@@ -196,12 +224,11 @@ const styles = StyleSheet.create({
     marginTop: 16,
   },
   createAccountLink: {
-    color: '#ff6d00',
+    color: "#ff6d00",
     fontWeight: "bold",
-    
   },
   socialContainer: {
-    alignItems: 'center',
+    alignItems: "center",
   },
   socialLogin: {
     alignItems: "center",
@@ -209,13 +236,13 @@ const styles = StyleSheet.create({
   },
   orText: {
     fontSize: 14,
-    color: '#525a66',
+    color: "#525a66",
     marginBottom: 16,
   },
   socialButtons: {
-    flexDirection: 'row',
-    justifyContent: 'center',
-    width: '100%',
+    flexDirection: "row",
+    justifyContent: "center",
+    width: "100%",
     marginBottom: 16,
     marginLeft: 10,
     marginRight: 10,
@@ -224,10 +251,10 @@ const styles = StyleSheet.create({
     width: 114,
     height: 56,
     borderWidth: 1,
-    borderColor: '#e9e9e9',
+    borderColor: "#e9e9e9",
     borderRadius: 8,
-    justifyContent: 'center',
-    alignItems: 'center',
+    justifyContent: "center",
+    alignItems: "center",
     marginLeft: 8,
     marginRight: 8,
   },
