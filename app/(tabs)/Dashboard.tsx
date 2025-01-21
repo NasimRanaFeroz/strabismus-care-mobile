@@ -149,7 +149,7 @@ export default Dashboard;
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: "#240046",
+    //backgroundColor: "#2E004F",
   },
   sView: {
     marginBottom: 40,

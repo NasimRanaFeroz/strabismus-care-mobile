@@ -25,7 +25,7 @@ const Login = () => {
     <Routes>
       <Route path="/" element={<HomeScreen />} />
       <Route path="/(tabs)/Dashboard" element={<Dashboard />} />
-      <Route path="/(auth)/Signup" element={<Signup />} />
+      <Route path="/(auth)/Login/Signup" element={<Signup />} />
       <Route path="/(auth)/PassRecover" element={<PassRecover />} />
     </Routes>
   </NativeRouter>;
@@ -265,3 +265,38 @@ const styles = StyleSheet.create({
 });
 
 export default Login;
+
+// <NavigationContainer>
+// <Tab.Navigator
+//   initialRouteName="Dashboard"
+//   screenOptions={({ route }) => ({
+//     headerShown: false, // Hide the header
+//     tabBarStyle: { backgroundColor: "#fff", height: 60 },
+//     tabBarLabelStyle: { fontSize: 12 },
+//     tabBarIcon: ({ color, size }) => {
+//       let iconName = "help"; // Default icon
+
+//       // Assign icons based on route name
+//       if (route.name === "Dashboard") {
+//         iconName = "dashboard";
+//       } else if (route.name === "Appointments") {
+//         iconName = "event";
+//       } else if (route.name === "Search") {
+//         iconName = "search";
+//       } else if (route.name === "Menu") {
+//         iconName = "menu";
+//       }
+
+//       // Return the icon component
+//       return <Icon name={iconName} size={size} color={color} />;
+//     },
+//     tabBarActiveTintColor: "#FF6F00", // Active tab color
+//     tabBarInactiveTintColor: "gray", // Inactive tab color
+//   })}
+// >
+//   <Tab.Screen name="Dashboard" component={Dashboard} />
+//   <Tab.Screen name="Appointments" component={Appointments} />
+//   <Tab.Screen name="Search" component={Search} />
+//   <Tab.Screen name="Menu" component={Menu} />
+// </Tab.Navigator>
+// </NavigationContainer>

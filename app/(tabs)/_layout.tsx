@@ -1,15 +1,32 @@
-import { View, Text } from "react-native";
 import React from "react";
-import { Tabs, Redirect } from "expo-router";
+import { Tabs } from "expo-router/tabs";
 
-const TabsLayout = () => {
+const TabLayout = () => {
   return (
     <>
-      <Tabs>
-        <Tabs.Screen name="DashBoard" />
+      <Tabs
+        screenOptions={{
+          tabBarActiveTintColor: "#FFA001",
+          tabBarInactiveTintColor: "#CDCDE0",
+          tabBarShowLabel: true,
+          tabBarStyle: {
+            backgroundColor: "#161612",
+            borderTopWidth: 1,
+            borderTopColor: "#232533",
+            height: 100,
+          },
+        }}
+      >
+        <Tabs.Screen
+          name="dashboard"
+          options={{
+            title: "Dashboard",
+            headerShown: true,
+          }}
+        />
       </Tabs>
     </>
   );
 };
 
-export default TabsLayout;
+export default TabLayout;
